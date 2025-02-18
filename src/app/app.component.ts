@@ -1,13 +1,22 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Route, Router, RouterModule } from '@angular/router';
+import { InputComponent } from './input/input.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'studentside';
+  // Define routes for the components directly in the main component
+  static routes: Route[] = [
+    { path: '', component: InputComponent },
+    { path: 'dashboard', component: DashboardComponent },
+  ];
+
+  constructor(private router: Router) {
+    this.router.resetConfig(AppComponent.routes);  // Set routes dynamically
+  }
 }
