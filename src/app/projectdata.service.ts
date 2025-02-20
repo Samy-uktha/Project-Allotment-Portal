@@ -142,13 +142,14 @@ export class ProjectdataService {
         criteria.degree.includes(student.degree) &&
         criteria.year.includes(student.year) &&
         student.cgpa >= criteria.cgpa 
+        
         // (criteria.prerequisites.length === 0 || criteria.prerequisites.every(course => student.completedCourses.includes(course)))
     );
     });
   }
 
   getAppliedProjects(): string[] {
-    return ['Blockchain-Based Voting System']; // This should ideally come from user data
+    return ['Blockchain-Based Voting System','project2','project3']; // This should ideally come from user data
   }
 
   constructor() { }
